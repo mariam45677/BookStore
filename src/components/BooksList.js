@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BooksList = ({isLoading,books}) => {
+const BooksList = ({isLoading,books,dispatch,deleteBook}) => {
   const bookList =books.map((item)=>(
     <li className='list-group-item d-flex  justify-content-between align-items-center' key={item.id}>
     <div>{item.title}</div>
@@ -8,7 +8,8 @@ const BooksList = ({isLoading,books}) => {
       <button type='button' className='btn btn-primary'>
         Read
       </button>
-      <button type='button' className='btn btn-danger'>
+      <button type='button' className='btn btn-danger'
+      onClick={()=>dispatch(deleteBook(item.id))}>
         Delete
       </button>
     </div>
